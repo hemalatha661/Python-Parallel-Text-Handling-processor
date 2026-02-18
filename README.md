@@ -52,3 +52,16 @@ The `database.py` file:
 - Creates the database and table
 - Inserts processed results
 - Clears previous records if needed
+
+  
+The program will:
+- Process text files
+- Compare execution time
+- Store results in `reviews.db`
+
+
+
+**purpopse**
+
+The purpose of this project is to demonstrate how multiprocessing improves performance in text file processing using Python.
+Author Tulugu Hemalatha
