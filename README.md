@@ -1,32 +1,54 @@
-**Python-Parallel-Text-Handling-processor**
- Python-Parallel-Text-Handling-Processor is a rule-based sentiment analysis system that processes multiple text review files and compares sequential execution with multiprocessing (parallel execution) using CPU cores.
+**Python-Parallel-Text-Handling-Processor**
 
-The project demonstrates how parallel computing improves performance in text processing tasks while storing results in a structured SQLite database.
-    
-**How It Works**
+**Project Overview**
+This project demonstrates text processing using Python.  
+It reads multiple text files, performs rule-based sentiment analysis, and compares the performance of sequential and multiprocessing execution.  
+The results are stored in an SQLite database.
 
-Reads multiple .txt files from the reviews/ folder.
+**Features**
+- Processes multiple text files
+- Rule-based sentiment analysis (Positive / Negative / Neutral)
+- Sequential execution
+- Parallel execution using multiprocessing
+- Execution time comparison
+- SQLite database integration
 
-Applies rule-based sentiment scoring:
+**Project Structure**
+python-parallel-text-handling/
+│
+├── main.py
+├── database.py
+├── reviews/
+│ └── review1.txt
+├── reviews.db
+└── README.md
 
-Positive words → +1
+ **Technologies Used**
+- Python
+- Multiprocessing Module
+- SQLite (sqlite3)
+- OS Module
+- Time Module
 
-Negative words → -1
+  
+**Database Setup**
+This project uses **SQLite** as the database.
 
-Calculates final sentiment:
+- Database file name: `reviews.db`
+- The database is automatically created when running the program.
+- Table name: `reviews`
 
-Score > 0 → Positive
+Table Structure
 
-Score < 0 → Negative
+| Column Name | Type    | Description |
+|-------------|---------|-------------|
+| id          | INTEGER | Primary Key (Auto Increment) |
+| file_name   | TEXT    | Name of review file |
+| score       | INTEGER | Sentiment score |
+| sentiment   | TEXT    | Final result (Positive/Negative/Neutral) |
+| process_id  | INTEGER | Process ID (for multiprocessing) |
 
-Score = 0 → Neutral
-
-**Runs analysis in:**
-
-Sequential mode
-
-Multiprocessing mode
-
-Compares execution times.
-
-Stores results in SQLite database (reviews.db).
+The `database.py` file:
+- Creates the database and table
+- Inserts processed results
+- Clears previous records if needed
